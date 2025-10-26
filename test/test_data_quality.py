@@ -63,15 +63,26 @@ def test_basico(datos_banco):
     # Verificar cantidad de columnas
     assert df.shape[1] == 21, f"El DataFrame debería tener 21 columnas, pero tiene {df.shape[1]}."
 
+def test_unumerated_fields(datos_banco):
+    valid_yes_no_unknown = {"yes", "no", "unknown"}
+    valid_yes_no = {"yes", "no"}
+    valid_jobs = {
+        "admin.", "blue-collar", "entrepreneur", "housemaid", "management",
+        "retired", "self-employed", "services", "student", "technician",
+        "unemployed", "unknown"
+    }
+    valid_education = {
+        "illiterate", "basic.4y", "basic.6y", "basic.9y", "high.school",
+        "professional.course", "university.degree", "unknown"
+    }
+    valid_contact = {"cellular", "telephone"}
+    valid_months = {"jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"}
+    valid_days = {"mon","tue","wed","thu","fri"}
 
-if __name__ == "__main__":
-    try:
-        test_esquema(datos_banco())
-        test_basico(datos_banco())
-        print("Todos los tests pasaron exitosamente.")
-        with open("docs/test_results/test_results.txt", "w") as f:
-            f.write("Todos los tests pasaron exitosamente.\n")
-    except AssertionError as e:
-        print(f"Test fallido: {e}")
-        with open("docs/test_results/test_results.txt", "w") as f:
-            f.write(f"Test fallido: {e}\n")
+    assert datos_banco["housing"].isin(valid_yes_no_unknown).all()
+    assert datos_banco["y"].isin(valid_yes_no).all()
+    assert datos_banco["job"].isin(valid_jobs).all()
+    assert datos_banco["education"].isin(valid_education).all()
+    assert datos_banco["contact"].isin(valid_contact).all()
+    assert datos_banco["month"].isin(valid_months).all()
+    assert datos_banco["day_of_week"].isin(valid_days).all()

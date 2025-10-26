@@ -8,6 +8,7 @@ ydata_profiling
 streamlit
 streamlit-ace
 pytest
+pytest-html
 pandera
 great_expectations
 fastapi

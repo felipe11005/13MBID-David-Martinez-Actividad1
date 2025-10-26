@@ -36,3 +36,20 @@ stages:
       hash: md5
       md5: 6db14328b0c96538131618b3bbdd143a
       size: 24052
+  test_data_quality:
+    cmd: pytest --html=docs/test_results/test_results.html --self-contained-html
+      test/test_data_quality.py
+    deps:
+    - path: data/raw/bank-additional-full.csv
+      hash: md5
+      md5: f6cb2c1256ffe2836b36df321f46e92c
+      size: 5834924
+    - path: test/test_data_quality.py
+      hash: md5
+      md5: 7de0a57f18979882569f91a83c706c4e
+      size: 2797
+    outs:
+    - path: docs/test_results/test_results.html
+      hash: md5
+      md5: 8fae2e7e2ff4076765c3011094365bae
+      size: 32653

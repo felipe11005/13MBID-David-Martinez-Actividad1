@@ -11,3 +11,10 @@ stages:
       - docs/figures/success_rate_by_education_and_job.png
       - docs/figures/success_rate_by_job.png
       - docs/figures/target_distribution.png
+  test_data_quality:
+    cmd: pytest --html=docs/test_results/test_results.html --self-contained-html test/test_data_quality.py
+    deps:
+      - test/test_data_quality.py
+      - data/raw/bank-additional-full.csv
+    outs:
+      - docs/test_results/test_results.html

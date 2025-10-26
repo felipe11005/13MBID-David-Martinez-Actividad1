@@ -1,0 +1,13 @@
+stages:
+  visualize_data:
+    cmd: python3 src/data_visualizer.py
+    deps:
+      - data/raw/bank-additional-full.csv
+    outs:
+      - docs/figures/correlation_matrix.png
+      - docs/figures/education_distribution.png
+      - docs/figures/job_distribution.png
+      - docs/figures/success_rate_by_contact_and_month.png
+      - docs/figures/success_rate_by_education_and_job.png
+      - docs/figures/success_rate_by_job.png
+      - docs/figures/target_distribution.png

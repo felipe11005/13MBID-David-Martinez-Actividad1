@@ -5,3 +5,4 @@ Transformaciones realizadas:
 - Se eliminó la columna 'default' debido a la alta cantidad de valores desconocidos
 - Cantidad de filas finales: 38232
 - Cantidad de columnas finales: 20
+- Columna Educación: ['0-illiterate', '1-basic_school', '2-high_school', '3-professional_course', '4-university_degree']

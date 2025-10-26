@@ -32,3 +32,10 @@ stages:
       - src/data_preprocess.py
     outs:
       - data/processed/bank-processed.csv
+  test_preprocessed_data:
+    cmd: pytest --html=docs/test_results/test_results_preprocessed_data.html --self-contained-html test/test_preprocessed_data.py
+    deps:
+      - test/test_preprocessed_data.py
+      - data/processed/bank-processed.csv
+    outs:
+      - docs/test_results/test_results_preprocessed_data.html

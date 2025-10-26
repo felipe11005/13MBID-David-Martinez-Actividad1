@@ -25,14 +25,27 @@ def preprocess_data(input_path=INPUT_CSV, output_path=OUTPUT_CSV):
     # Se hace un filtro para eliminar las filas duplicadas
     df.drop_duplicates(inplace=True)
 
+    # Se mapea education para reunir todos los basic_school, además de poner un prefijo a modo de ranking
+    education_mapper = {
+        "illiterate": "0-illiterate",
+        "unknown": "0-unknown",
+        "basic.4y": "1-basic_school",
+        "basic.6y": "1-basic_school",
+        "basic.9y": "1-basic_school",
+        "high.school": "2-high_school",
+        "professional.course": "3-professional_course",
+        "university.degree": "4-university_degree",        
+    }
+    df["education"] = df["education"].map(education_mapper)
+
     # Save the processed dataset
     df.to_csv(output_path, index=False)
 
-    return df.shape
+    return df.shape, df["education"].unique()
 
 
 if __name__ == "__main__":
-    dimensiones = preprocess_data()
+    dimensiones, educations = preprocess_data()
     with open('docs/transformations.txt', 'w') as f:
         f.write("Transformaciones realizadas:\n")
         f.write("- Se reemplazaron los valores 'unknown' por NaN\n")
@@ -41,3 +54,4 @@ if __name__ == "__main__":
         f.write("- Se eliminó la columna 'default' debido a la alta cantidad de valores desconocidos\n")
         f.write(f"- Cantidad de filas finales: {dimensiones[0]}\n")
         f.write(f"- Cantidad de columnas finales: {dimensiones[1]}\n")
+        f.write(f"- Columna Educación: {sorted(educations)}\n")

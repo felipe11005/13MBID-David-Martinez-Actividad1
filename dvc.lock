@@ -1,0 +1,38 @@
+schema: '2.0'
+stages:
+  visualize_data:
+    cmd: python3 src/data_visualizer.py
+    deps:
+    - path: data/raw/bank-additional-full.csv
+      hash: md5
+      md5: f6cb2c1256ffe2836b36df321f46e92c
+      size: 5834924
+    outs:
+    - path: docs/figures/correlation_matrix.png
+      hash: md5
+      md5: 369fd241c9266666c312cf5da43883be
+      size: 109264
+    - path: docs/figures/education_distribution.png
+      hash: md5
+      md5: 7328f051516b1ca0fba4f5c87150389c
+      size: 20327
+    - path: docs/figures/job_distribution.png
+      hash: md5
+      md5: f88d88947303bb257cb463df5dee0710
+      size: 23163
+    - path: docs/figures/success_rate_by_contact_and_month.png
+      hash: md5
+      md5: 4f943450b54bfc3af3d758a2a35241cc
+      size: 32518
+    - path: docs/figures/success_rate_by_education_and_job.png
+      hash: md5
+      md5: 6e59485512c4b937a7ef4ce1a6b7c722
+      size: 78749
+    - path: docs/figures/success_rate_by_job.png
+      hash: md5
+      md5: 5d8b682a83baae1bcbb61b34972182a0
+      size: 39376
+    - path: docs/figures/target_distribution.png
+      hash: md5
+      md5: 6db14328b0c96538131618b3bbdd143a
+      size: 24052

@@ -25,6 +25,10 @@ def preprocess_data(input_path=INPUT_CSV, output_path=OUTPUT_CSV):
     # Se hace un filtro para eliminar las filas duplicadas
     df.drop_duplicates(inplace=True)
 
+
+    # Mapear la columna objetivo 'y' a valores binarios
+    df['y'] = df['y'].map({'yes': 1, 'no': 0})
+
     # Se mapea education para reunir todos los basic_school, además de poner un prefijo a modo de ranking
     education_mapper = {
         "illiterate": "0-illiterate",

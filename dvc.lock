@@ -79,21 +79,21 @@ stages:
       size: 5834924
     - path: src/data_preprocess.py
       hash: md5
-      md5: 8764a06ac3212abc90559f977687dd33
-      size: 2233
+      md5: cdeed1f2d51ac33bb88f6de1f01a8e71
+      size: 2356
     outs:
     - path: data/processed/bank-processed.csv
       hash: md5
-      md5: 84aa63f2370ec08bb58fa244828581a7
-      size: 4488938
+      md5: 316cceae6335513c42fb2885fb8353b9
+      size: 4454589
   test_preprocessed_data:
     cmd: pytest --html=docs/test_results/test_results_preprocessed_data.html 
       --self-contained-html test/test_preprocessed_data.py
     deps:
     - path: data/processed/bank-processed.csv
       hash: md5
-      md5: 84aa63f2370ec08bb58fa244828581a7
-      size: 4488938
+      md5: 316cceae6335513c42fb2885fb8353b9
+      size: 4454589
     - path: test/test_preprocessed_data.py
       hash: md5
       md5: 9c3895e4895f31247b19c10931f6268c
@@ -101,5 +101,5 @@ stages:
     outs:
     - path: docs/test_results/test_results_preprocessed_data.html
       hash: md5
-      md5: a1b89673e606540269463a4a97eeabc7
-      size: 32088
+      md5: 3562760f394e3429ede2b6828f8afc3f
+      size: 32086

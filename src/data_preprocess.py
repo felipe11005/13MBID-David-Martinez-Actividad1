@@ -16,8 +16,11 @@ def preprocess_data(input_path=INPUT_CSV, output_path=OUTPUT_CSV):
     # Transformar los valores 'unknown' en NaN
     df.replace('unknown', np.nan, inplace=True)
 
+    # Se agrega el campo contacted_before
+    df['contacted_before'] = np.where(df['pdays'] == 999, 'no', 'yes')
+
     # Se elimina la columna 'default' ya que tiene muchos valores desconocidos
-    df.drop(columns=["default"], inplace=True)
+    df.drop(columns=["default", "pdays"], inplace=True)
 
     # Se hace un filtro para eliminar las filas que tienen valores nulos
     df.dropna(inplace=True)

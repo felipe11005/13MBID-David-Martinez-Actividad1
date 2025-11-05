@@ -39,3 +39,13 @@ stages:
       - data/processed/bank-processed.csv
     outs:
       - docs/test_results/test_results_preprocessed_data.html
+
+  train_model:
+    cmd: python src/model_trainer.py
+    deps:
+      - data/processed/bank-processed.csv
+      - src/model_trainer.py
+    outs:
+      - models/decision_tree_model.pkl
+      - models/preprocessor.pkl
+      - metrics/model_metrics.json

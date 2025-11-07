@@ -49,3 +49,13 @@ stages:
       - models/decision_tree_model.pkl
       - models/preprocessor.pkl
       - metrics/model_metrics.json
+  test_train_model:
+    cmd: pytest --html=docs/test_results/test_results_trained_model.html --self-contained-html test/test_training.py
+    deps:
+      - test/test_training.py
+      - data/processed/bank-processed.csv
+      - metrics/model_metrics.json
+      - models/decision_tree_model.pkl
+      - models/preprocessor.pkl
+    outs:
+      - docs/test_results/test_results_trained_model.html

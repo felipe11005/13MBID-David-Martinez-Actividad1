@@ -5,7 +5,7 @@ import joblib
 from typing import Dict
 
 app = FastAPI(
-    title="Modelo de Clasificación de Clientes Bancarios",
+    title="Modelo de Clasificación de Clientes Bancarios - David Martinez",
     description="API para predecir si un cliente bancario va a realizar un depósito a plazo fijo.",
     version="1.0.1",
 )
@@ -83,7 +83,7 @@ except Exception as e:
 @app.get("/")
 def root():
     return {
-        "message": "API del modelo de predicción para clientes bancarios.",
+        "message": "API del modelo de predicción para clientes bancarios. - David Martinez",
         "version": "1.0.1",
         "endpoints": {
             "predict": "/predict",

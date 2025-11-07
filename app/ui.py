@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # Título y descripción
-st.title("🏦 Predicción de Conformación a Depósito a Plazo Fijo")
+st.title("🏦 Predicción de Conformación a Depósito a Plazo Fijo - David Martinez VIU")
 st.markdown("""
 Esta aplicación utiliza un modelo de Machine Learning para predecir si un cliente bancario 
 conformará un depósito a plazo fijo basándose en sus características personales y de contacto.
@@ -248,7 +248,7 @@ with tab2:
     - Número de empleados
     
     #### 🎯 Salida del Modelo:
-    - **Predicción**: "yes" o "no" (si el cliente suscribirá el depósito)
+    - **Predicción**: "1.0" o "0.0" (si el cliente suscribirá el depósito)
     - **Probabilidades**: Probabilidad para cada clase
     
     #### 🔧 Tecnologías Utilizadas:
